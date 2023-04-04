@@ -1,5 +1,5 @@
 import * as React from 'react';
-import warning from 'rc-util/es/warning';
+import warning from './utils/warning';
 import type { InternalNamePath, NamePath, StoreValue, ValidatorRule, Meta } from './interface';
 import FieldContext from './FieldContext';
 import Field from './Field';

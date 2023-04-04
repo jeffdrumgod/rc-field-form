@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, act, fireEvent, screen, waitFor, RenderResult } from './test-utils';
-import { resetWarned } from 'rc-util/es/warning';
+import { resetWarned } from '../src/utils/warning';
 import Form, { Field, List } from '../src';
 import type { FormProps } from '../src';
 import type { ListField, ListOperations, ListProps } from '../src/List';

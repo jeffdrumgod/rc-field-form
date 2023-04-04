@@ -1,4 +1,4 @@
-import warning from 'rc-util/es/warning';
+import warning from './utils/warning';
 import * as React from 'react';
 import type { InternalFormInstance } from './interface';
 
