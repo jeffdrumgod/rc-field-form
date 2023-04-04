@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { FormInstance } from './interface';
 import Field from './Field';
 import List from './List';

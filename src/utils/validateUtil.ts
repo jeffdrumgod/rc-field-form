@@ -1,5 +1,5 @@
 import RawAsyncValidator from 'async-validator';
-import * as React from 'react';
+import React from 'react';
 import warning from './warning';
 import type {
   InternalNamePath,

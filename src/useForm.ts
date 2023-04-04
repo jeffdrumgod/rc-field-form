@@ -1,5 +1,5 @@
 import warning from './utils/warning';
-import * as React from 'react';
+import React from 'react';
 import { HOOK_MARK } from './FieldContext';
 import type {
   Callbacks,

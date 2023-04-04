@@ -1,5 +1,5 @@
 import warning from './utils/warning';
-import * as React from 'react';
+import React from 'react';
 import toChildrenArray from './utils/toChildrenArray';
 import type {
   FieldEntity,
