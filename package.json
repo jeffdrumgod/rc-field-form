@@ -1,25 +1,32 @@
 {
-  "name": "rc-field-form",
-  "version": "2.0.0",
+  "name": "@jeff_drumgod/rc-field-form",
+  "version": "2.0.0-rc.0",
+  "description": "React Form Component - With React 18 support",
   "type": "module",
-  "description": "React Form Component",
   "engines": {
-    "node": ">=18.x"
+    "node": ">=16.x"
   },
   "keywords": [
     "react",
+    "react 18",
     "react-component",
     "react-form",
     "form"
   ],
-  "homepage": "https://github.com/react-component/field-form",
+  "homepage": "https://github.com/jeffdrumgod/rc-field-form",
   "author": "smith3816@gmail.com",
+  "contributors": [
+    {
+      "name": "Jefferson Rafael Kozerski",
+      "email": "jeff.drumgod@gmail.com"
+    }
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/react-component/field-form.git"
+    "url": "https://github.com/jeffdrumgod/rc-field-form.git"
   },
   "bugs": {
-    "url": "https://github.com/react-component/field-form/issues"
+    "url": "https://github.com/jeffdrumgod/rc-field-form/issues"
   },
   "files": [
     "lib",

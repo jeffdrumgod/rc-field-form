@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.0.0-rc.0
+
+`2022.04.04`
+
+- React 18
+- Work on Node 18
+- Change tests to Vitest
+- Small improvements
+
+
 ## 1.17.3
 
 `2020.12.17`
