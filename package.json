@@ -43,7 +43,7 @@
     "docs:build": "export NODE_OPTIONS=--openssl-legacy-provider && dumi build",
     "docs:deploy": "gh-pages -d docs-dist",
     "build": "pnpm compile",
-    "compile": "father-build && pnpm fix-esm-import-path ./es/index.js",
+    "compile": "father-build && node ./fixEsmImports.cjs ./es",
     "deploy": "pnpm run docs:build && pnpm run docs:deploy",
     "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
     "test": "vitest --watch=false",
