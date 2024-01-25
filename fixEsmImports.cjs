@@ -1,23 +1,24 @@
 const fs = require('fs');
 const path = require('path');
 
-// Function to verify that a path is a folder
+// Função para verificar se um caminho é uma pasta
 function isDirectory(directoryPath) {
   return fs.existsSync(directoryPath) && fs.lstatSync(directoryPath).isDirectory();
 }
 
-// Function to add the .js or index.js extension to the imports
+// Função para adicionar a extensão .js ou index.js aos imports
 function fixImportPath(filePath) {
   let fileContent = fs.readFileSync(filePath, 'utf8');
-  const regex = /import\s+(?:(?:\w+\s+from\s+)?['"])(\..*?)(?=['"])/g;
+  // Melhorando a expressão regular para capturar mais casos
+  const regex = /import\s+(?:\w+\s*,\s*)?\{?.*?\}?\s*from\s+['"](\..*?)['"]/g;
 
   fileContent = fileContent.replace(regex, (match, importPath) => {
     let fullPath = path.join(path.dirname(filePath), importPath);
     if (isDirectory(fullPath)) {
-      // If it is a folder, add /index.js
+      // Se for uma pasta, adicionar /index.js
       return match.replace(importPath, importPath + '/index.js');
     } else if (fs.existsSync(fullPath + '.js')) {
-      // If the file exists, add .js
+      // Se o arquivo existir, adicionar .js
       return match.replace(importPath, importPath + '.js');
     }
     return match;
@@ -26,21 +27,21 @@ function fixImportPath(filePath) {
   fs.writeFileSync(filePath, fileContent);
 }
 
-// Function to process a directory
+// Função para processar um diretório
 function processDirectory(directory) {
-  fs.readdirSync(directory).forEach(file => {
-    let fullPath = path.join(directory, file);
-    if (fs.lstatSync(fullPath).isDirectory()) {
-      // If it is a folder, process recursively
+  fs.readdirSync(directory, { withFileTypes: true }).forEach(dirent => {
+    let fullPath = path.join(directory, dirent.name);
+    if (dirent.isDirectory()) {
+      // Se for uma pasta, processar recursivamente
       processDirectory(fullPath);
-    } else if (path.extname(file) === '.js') {
-      // If it is a .js file, adjust the imports
+    } else if (dirent.isFile() && path.extname(dirent.name) === '.js') {
+      // Se for um arquivo .js, ajustar os imports
       fixImportPath(fullPath);
     }
   });
 }
 
-// Process from click
+// Processar a partir da CLI
 const args = process.argv.slice(2);
 
 if (args.length !== 1) {
